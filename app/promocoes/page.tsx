@@ -54,7 +54,7 @@ export default function PromotionsPage() {
         </p>
       </div>
 
-      <Suspense>
+      <Suspense fallback={null}>
         <PromotionsContent allPromotions={allPromotions} categories={categories} />
       </Suspense>
     </div>

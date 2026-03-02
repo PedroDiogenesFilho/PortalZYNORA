@@ -20,7 +20,7 @@ export default function BlogPage() {
         </p>
       </div>
 
-      <Suspense>
+      <Suspense fallback={null}>
         <BlogContent allPosts={allPosts} categories={categories} />
       </Suspense>
     </div>
