@@ -6,7 +6,19 @@ interface PostCardProps {
   post: Post;
 }
 
+const categoryColors: Record<string, string> = {
+  "Programação": "bg-blue-600",
+  "Inteligência Artificial": "bg-purple-600",
+  "Cloud": "bg-sky-600",
+  "Front-end": "bg-pink-600",
+  "Segurança": "bg-red-600",
+  "DevOps": "bg-emerald-600",
+};
+
+const DEFAULT_BADGE_COLOR = "bg-blue-600";
+
 export default function PostCard({ post }: PostCardProps) {
+  const badgeColor = categoryColors[post.category] ?? DEFAULT_BADGE_COLOR;
   return (
     <article className="bg-gray-800 rounded-xl overflow-hidden hover:ring-2 hover:ring-blue-500 transition-all group">
       <div className="relative h-48 overflow-hidden">
@@ -17,8 +29,9 @@ export default function PostCard({ post }: PostCardProps) {
           className="object-cover group-hover:scale-105 transition-transform duration-300"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
+        <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent" />
         <div className="absolute top-3 left-3">
-          <span className="bg-blue-600 text-white text-xs px-3 py-1 rounded-full font-medium">
+          <span className={`${badgeColor} text-white text-xs px-3 py-1 rounded-full font-medium`}>
             {post.category}
           </span>
         </div>

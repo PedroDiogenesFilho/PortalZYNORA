@@ -136,19 +136,81 @@ export default function Home() {
         <h2 className="text-2xl font-bold text-white mb-6">Explore por Categoria</h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
           {[
-            { name: "Programação", icon: "💻", color: "bg-blue-600/20 hover:bg-blue-600/30 text-blue-400" },
-            { name: "Inteligência Artificial", icon: "🤖", color: "bg-purple-600/20 hover:bg-purple-600/30 text-purple-400" },
-            { name: "Cloud", icon: "☁️", color: "bg-sky-600/20 hover:bg-sky-600/30 text-sky-400" },
-            { name: "Front-end", icon: "🎨", color: "bg-pink-600/20 hover:bg-pink-600/30 text-pink-400" },
-            { name: "Segurança", icon: "🔒", color: "bg-red-600/20 hover:bg-red-600/30 text-red-400" },
-            { name: "DevOps", icon: "⚙️", color: "bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-400" },
+            {
+              name: "Programação",
+              color: "bg-blue-600/20 hover:bg-blue-600/30 text-blue-400",
+              iconBg: "bg-blue-600/30",
+              icon: (
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+                  <polyline points="16 18 22 12 16 6" />
+                  <polyline points="8 6 2 12 8 18" />
+                </svg>
+              ),
+            },
+            {
+              name: "Inteligência Artificial",
+              color: "bg-purple-600/20 hover:bg-purple-600/30 text-purple-400",
+              iconBg: "bg-purple-600/30",
+              icon: (
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+                  <circle cx="12" cy="12" r="3" />
+                  <path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12" />
+                </svg>
+              ),
+            },
+            {
+              name: "Cloud",
+              color: "bg-sky-600/20 hover:bg-sky-600/30 text-sky-400",
+              iconBg: "bg-sky-600/30",
+              icon: (
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+                  <path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z" />
+                </svg>
+              ),
+            },
+            {
+              name: "Front-end",
+              color: "bg-pink-600/20 hover:bg-pink-600/30 text-pink-400",
+              iconBg: "bg-pink-600/30",
+              icon: (
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                  <line x1="8" y1="21" x2="16" y2="21" />
+                  <line x1="12" y1="17" x2="12" y2="21" />
+                </svg>
+              ),
+            },
+            {
+              name: "Segurança",
+              color: "bg-red-600/20 hover:bg-red-600/30 text-red-400",
+              iconBg: "bg-red-600/30",
+              icon: (
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg>
+              ),
+            },
+            {
+              name: "DevOps",
+              color: "bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-400",
+              iconBg: "bg-emerald-600/30",
+              icon: (
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+                  <circle cx="12" cy="12" r="3" />
+                  <path d="M19.07 4.93a10 10 0 010 14.14M4.93 4.93a10 10 0 000 14.14" />
+                  <path d="M22 12a10 10 0 01-10 10M2 12a10 10 0 0010-10" />
+                </svg>
+              ),
+            },
           ].map((cat) => (
             <Link
               key={cat.name}
               href={`/blog?categoria=${encodeURIComponent(cat.name)}`}
               className={`${cat.color} rounded-xl p-4 text-center transition-colors`}
             >
-              <div className="text-2xl mb-2">{cat.icon}</div>
+              <div className={`${cat.iconBg} w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3`}>
+                {cat.icon}
+              </div>
               <div className="text-sm font-medium">{cat.name}</div>
             </Link>
           ))}

@@ -16,6 +16,25 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Custom dark scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1f2937;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #374151;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4b5563;
+}
+
 .prose-dark {
   color: #d1d5db;
   line-height: 1.75;
